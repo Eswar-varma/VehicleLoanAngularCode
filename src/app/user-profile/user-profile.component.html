@@ -125,6 +125,7 @@
 
                         <!-- end of profile info -->
                     <button type="button"(click)="onEdit()" *ngIf=editbutton class="btn btn-info">Edit My profile</button><br><br>
+                    
                     <form [formGroup] = "user" (ngSubmit)="onSubmit()" *ngIf=formVisible>
                     <fieldset disabled>
                         <div class="form-group shadow p-3 mb-3 bg-white rounded">

@@ -47,7 +47,8 @@ import { UserComponent } from './user/user.component';
     MainHomeComponent,
     UserProfileComponent,
     UserhomeComponent,
-    UserComponent
+    UserComponent,
+    LoanApplicationComponent
   ],
   imports: [
     BrowserModule,
