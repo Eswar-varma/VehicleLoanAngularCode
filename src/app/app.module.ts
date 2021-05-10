@@ -25,6 +25,14 @@ import { MainHomeComponent } from './main-home/main-home.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { UserhomeComponent } from './userhome/userhome.component';
 import { UserComponent } from './user/user.component';
+import { AdminhomeComponent } from './adminhome/adminhome.component';
+import { PendingApplicationsComponent } from './adminhome/PendingLoans';
+import { ApprovedApplicationsComponent } from './adminhome/ApprovedLoanApplications';
+import { RejectedApplicationsComponent } from './adminhome/RejectedLoans';
+import { DetailsComponent } from './adminhome/DisplayDetails';
+import { CommonModule } from '@angular/common';
+import { ApprovedDetailsComponent } from './approved-details/approved-details.component';
+import { LoanApplicationsComponent } from './adminhome/RetriveLoanApplications';
 
 @NgModule({
   declarations: [
@@ -47,14 +55,23 @@ import { UserComponent } from './user/user.component';
     MainHomeComponent,
     UserProfileComponent,
     UserhomeComponent,
-    UserComponent
+    UserComponent,
+    AdminhomeComponent,
+    PendingApplicationsComponent,
+    ApprovedApplicationsComponent,
+    RejectedApplicationsComponent,
+    DetailsComponent,
+    ApprovedDetailsComponent,
+    LoanApplicationsComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    CommonModule
     
   ],
   providers: [authInterceptorProviders],

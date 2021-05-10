@@ -1,4 +1,4 @@
-export class User{
+export class Users{
     constructor(
          user_email:string,
         public user_password:string,

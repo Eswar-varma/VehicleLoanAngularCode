@@ -1,11 +1,12 @@
-import { User } from "../user/User";
+import { Users } from "./UsersForAdmin";
 
 
-export class LoanApplication {
+
+export class LoanApplications {
 	constructor(
     loan_applicaton_id:number,
 	loan_tenure:number,
-	user:User,
+	user:Users,
 	loan_amount:number,
 	vehicle_brand:string,
 	vehicle_model:string,
