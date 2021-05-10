@@ -1,0 +1,32 @@
+<h4>hi hello</h4>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand fa fa-car fa-3x" routerLink="Home">Vehicle Loan Management</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+  
+      <div class="collapse navbar-collapse" id="navbarColor02">
+        <ul class="navbar-nav me-auto" routerLinkActive="active">
+          <li class="nav-item">
+            <a class="nav-link" href="User/UserHome" routerLink="UserHome">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="loanapplication" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Go to Loan Application ">Loan</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+      <!-- <div class="collapse navbar-collapse" id="navbarColor02"> -->
+        <ul class="nav navbar-nav navbar-right collapse navbar-collapse" id="navbarColor02">
+          <li class="nav-item">
+            <a class="nav-link fas fa-user" data-bs-toggle="tooltip" data-bs-placement="bottom" title="View Profile" routerLink="UserProfile">Profile </a>
+          </li>
+        </ul>
+    <!-- </div> -->
+   
+  </nav>
+
+  <div>
+    <router-outlet></router-outlet>
+  </div>

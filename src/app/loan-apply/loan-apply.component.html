@@ -1,0 +1,110 @@
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-9">
+            <div class="contact-form">
+                <form [formGroup] = "LoanApplication" (ngSubmit)="onSubmit()" >  
+                    <div class="form-group"> <!-- form-group and form-control are bootstrap classes -->
+                        <label>Loan Tenure</label>
+                        <input placeholder="Enter value (in years)" formControlName="loan_tenure" type="number" class="form-control">
+                    </div>
+                        
+                    <div *ngIf="LoanApplication.controls['loan_tenure'].hasError('required')">
+                        <span [ngStyle]="{'margin-left': '40px','color':'red'}">
+                        Loan tenure cannot be Empty
+                        </span>
+                    </div>
+                
+                    <div *ngIf="LoanApplication.controls['loan_tenure'].hasError('min')">
+                        <span [ngStyle]="{'margin-left': '40px','color':'red'}">
+                        Loan Tenure starts form 2 years
+                        </span>
+                    </div>
+                    <div *ngIf="LoanApplication.controls['loan_tenure'].hasError('max')">
+                        <span [ngStyle]="{'margin-left': '40px','color':'red'}">
+                        Loan Tenure cannot be execeded above 5 years
+                        </span>
+                    </div>
+
+                    <br>
+                    <div class="form-group"> <!-- form-group and form-control are bootstrap classes -->
+                        <label>Loan Amount </label>
+                        <input placeholder="Enter only digits" formControlName="loan_amount" type="number" class="form-control">
+                    </div>
+
+                    <div *ngIf="LoanApplication.controls['loan_amount'].hasError('required')">
+                        <span [ngStyle]="{'margin-left': '40px','color':'red'}">
+                        Loan Amount cannot be Empty
+                        </span>
+                    </div>
+                    <br>
+                    <h4>
+                        <span>Step 2: </span>
+                        <span >Vehicle Information</span>
+                    </h4>
+                    <div class="form-group"> <!-- form-group and form-control are bootstrap classes -->
+                        <label>Vehicle brand</label>
+                        <input  formControlName="vehicle_brand" type="text" class="form-control">
+                    </div>
+
+                        
+
+                    <div *ngIf="LoanApplication.controls['vehicle_brand'].hasError('required')">
+                        <span [ngStyle]="{'margin-left': '40px','color':'red'}">
+                         vehicle brand cannot be Empty
+                        </span>
+                    </div>
+                    <div *ngIf="LoanApplication.controls['vehicle_brand'].hasError('pattern')">
+                        <span [ngStyle]="{'margin-left': '40px','color':'red'}">
+                            vehicle brand should have only alphabets
+                        </span>
+                    </div>
+
+                    <div class="form-group"> <!-- form-group and form-control are bootstrap classes -->
+                        <label>Vehicle Model</label>
+                        <input  formControlName="vehicle_model" type="text" class="form-control">
+                    </div>
+
+                    <div *ngIf="LoanApplication.controls['vehicle_model'].hasError('required')">
+                        <span [ngStyle]="{'margin-left': '40px','color':'red'}">
+                        vehicle model cannot be Empty
+                        </span>
+                    </div>
+                    <div class="form-group"> <!-- form-group and form-control are bootstrap classes -->
+                        <label>Vehicle Type</label>
+                        <input  formControlName="vehicle_type" type="text" class="form-control">
+                    </div>
+
+
+                    <div class="form-group"> <!-- form-group and form-control are bootstrap classes -->
+                        <label>Vehicle colour</label>
+                        <input  formControlName="vehicle_colour" type="text" class="form-control">
+                    </div>
+
+                    <div class="form-group"> <!-- form-group and form-control are bootstrap classes -->
+                        <label>Vehicle ex-showRoom Price</label>
+                        <input  formControlName="vehicle_exshowroom_price" type="number" class="form-control">
+                    </div>
+
+                    <div *ngIf="LoanApplication.controls['vehicle_exshowroom_price'].hasError('required')">
+                        <span [ngStyle]="{'margin-left': '40px','color':'red'}">
+                        vehicle ex-showRoom Price cannot be Empty
+                        </span>
+                    </div>
+
+                    <div class="form-group"> <!-- form-group and form-control are bootstrap classes -->
+                        <label>Vehicle on Road Price </label>
+                        <input  formControlName="vehicel_on_road_price" type="number" class="form-control">
+                    </div>
+
+                    <div *ngIf="LoanApplication.controls['vehicel_on_road_price'].hasError('required')">
+                        <span [ngStyle]="{'margin-left': '40px','color':'red'}">
+                        Vehicle on Road Price cannot be Empty
+                        </span>
+                    </div>
+                    <button  class="btn btn-primary" type="submit" >Register</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

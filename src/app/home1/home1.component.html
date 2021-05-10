@@ -1,0 +1,70 @@
+<!DOCTYPE html> 
+<html>
+  <head>
+    <title>Home Page</title> 
+</head> 
+
+<body>
+    <!--Navigation Bar Starting-->
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+  <a class="navbar-brand loan" href="#" ><b>Vehicle Loan Management</b> </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ml-auto  bold" routerLinkActive="active">
+      <li class="nav-item active">
+        <a class="nav-link" href="/home" routerLink="home"><i class="fa fa-home" aria-hidden="true"></i>Home <span class="sr-only">(current)</span></a>
+      </li>
+	   <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <i class="fa fa-info" aria-hidden="true"></i> Help
+      </a>
+      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <a class="dropdown-item" routerLink="FAQ" >FAQ's</a>
+        <a class="dropdown-item" routerLink="Contact" >Contact info</a>
+       
+      </div>
+    </li>
+      <li class="nav-item" *ngIf="showAdminBoard">
+        <a href="/admin" class="nav-link" routerLink="admin">Admin Board</a>
+      </li>
+      <li class="nav-item">
+        <a href="/user" class="nav-link" *ngIf="isLoggedIn" routerLink="UserHome">User</a>
+      </li>
+      <li class="nav-item">
+        <a href="/Loan" class="nav-link" *ngIf="isLoggedIn" routerLink="loanapplication">Loan</a>
+      </li>
+    </ul>
+
+    <ul class="navbar-nav ml-auto" *ngIf="!isLoggedIn">
+      <li class="nav-item">
+        <a class="nav-link" href="/register" routerLink="register"> <i class="fa fa-user-plus" aria-hidden="true"></i>Registration</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/login" routerLink="login"><i class="fa fa-user" aria-hidden="true"></i>Login</a>
+      </li>
+    </ul>
+
+    <ul class="navbar-nav ml-auto" *ngIf="isLoggedIn">
+      <li class="nav-item">
+        <a href="/profile" class="nav-link" routerLink="UserProfile"><i class="fa fa-user" aria-hidden="true"></i>{{ username }}</a>
+      </li>
+      <li class="nav-item">
+        <a href class="nav-link" (click)="logout()"><i class="fa fa-sign-out" aria-hidden="true"></i>LogOut</a>
+      </li>
+    </ul>
+    <!-- <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form> -->
+  </div>
+</nav>
+
+<!--End OF Navigation Bar-->
+<div>
+  <router-outlet></router-outlet>
+</div>
+</body>
+</html>
