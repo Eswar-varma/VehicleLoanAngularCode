@@ -28,19 +28,19 @@
       </div>
     </li>
       <li class="nav-item" *ngIf="showAdminBoard">
-        <a href="/admin" class="nav-link" routerLink="admin">Admin Board</a>
+        <a class="nav-link" routerLink="admin">Admin Board</a>
       </li>
       <li class="nav-item">
-        <a href="/user" class="nav-link" *ngIf="isLoggedIn" routerLink="User">User</a>
+        <a class="nav-link" *ngIf="isLoggedIn" routerLink="User/UserHome">User</a>
       </li>
     </ul>
 
     <ul class="navbar-nav ml-auto" *ngIf="!isLoggedIn">
       <li class="nav-item">
-        <a class="nav-link" href="/register" routerLink="register"> <i class="fa fa-user-plus" aria-hidden="true"></i>Registration</a>
+        <a class="nav-link" href="/register" routerLink="register" routerLinkActive="active"> <i class="fa fa-user-plus" aria-hidden="true"></i>Registration</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/login" routerLink="login"><i class="fa fa-user" aria-hidden="true"></i>Login</a>
+        <a class="nav-link" href="/login" routerLink="login" routerLinkActive="active"><i class="fa fa-user" aria-hidden="true"></i>Login</a>
       </li>
     </ul>
 
