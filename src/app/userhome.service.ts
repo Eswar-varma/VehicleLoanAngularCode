@@ -13,7 +13,7 @@ export class UserhomeService {
   constructor(private httpservice:HttpClient,private tokenStorageService: TokenStorageService) { }
   // private getByEmailURL:string="http://localhost:8989/users/eswarvarmab@gmail.com";
   
-  private putMap:string = "http://localhost:8989/user/update/";
+  private putMap:string = "http://localhost:8989/user/update";
   email:string="";
 
   getByEmail():Observable<any>{
