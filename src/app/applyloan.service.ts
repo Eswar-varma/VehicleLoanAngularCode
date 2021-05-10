@@ -11,8 +11,11 @@ import { TokenStorageService } from './_services/token-storage.service';
 
 export class ApplyloanService {
   
-  constructor(private httpservice:HttpClient) { }
+  constructor(private httpservice:HttpClient,private tokenStorageService: TokenStorageService) { }
+  email:string=this.tokenStorageService.getUser().email;
+
   private postMap:string = "http://localhost:8989/loan/apply";
+  
   
   applyloan(loanapplication :LoanApplication): any
   {
@@ -20,6 +23,13 @@ export class ApplyloanService {
     console.log(loanapplication);
     return this.httpservice.post(this.postMap,loanapplication)
     .pipe( retry(1), catchError(this.myerrorhandler))
+  }
+  viewLoanApplication(id:string):Observable <any>{
+    console.group("Inside view of applyLoan Service")
+    // const getMap:string=`http://localhost:8989/loan/users/get/${this.id}`;
+    const getMap:string="http://localhost:8989/loan/get/1";
+    return this.httpservice.get<LoanApplication>(getMap).
+    pipe( retry(1), catchError(this.myerrorhandler));
   }
   // add(user: Users): any{
   //   console.log(user);

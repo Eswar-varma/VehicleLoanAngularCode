@@ -18,6 +18,7 @@ import { UserhomeComponent } from './userhome/userhome.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { UserComponent } from './user/user.component';
 import { LoanApplicationComponent } from './loan-application/loan-application.component';
+import { ViewloanComponent } from './viewloan/viewloan.component';
 
 const routes: Routes = [
   { path: 'home', component: MainHomeComponent },
@@ -40,7 +41,8 @@ const routes: Routes = [
         component: LoanApplicationComponent,
         children: [
           {path:'loanapply', component: LoanApplyComponent},
-          {path:'howtoapplyloan', component: HowToApplyCarLoanComponent}
+          {path:'howtoapplyloan', component: HowToApplyCarLoanComponent},
+          {path:"viewloanApplication",component:ViewloanComponent}
         ]
       }
     ]
