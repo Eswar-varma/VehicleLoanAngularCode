@@ -2,6 +2,7 @@ import { User } from "../user/User";
 
 
 export class LoanApplication {
+
 	constructor(
     loan_applicaton_id:number,
 	loan_tenure:number,
@@ -14,14 +15,7 @@ export class LoanApplication {
 	vehicle_exshowroom_price:string,
 	vehicel_on_road_price:string
 	){}
-	user:any;
-	loan_applicaton_id:any;
-	loan_tenure:any;
-	loan_amount:any;
-	vehicle_brand:any;
-	vehicle_model:any;
-	vehicle_type:any;
-	vehicle_colour:any;
-	vehicle_exshowroom_price:any;
-	vehicel_on_road_price:any;
+	
+
+	
  }

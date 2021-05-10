@@ -33,6 +33,9 @@ import { DetailsComponent } from './adminhome/DisplayDetails';
 import { CommonModule } from '@angular/common';
 import { ApprovedDetailsComponent } from './approved-details/approved-details.component';
 import { LoanApplicationsComponent } from './adminhome/RetriveLoanApplications';
+import { ViewloanComponent } from './viewloan/viewloan.component';
+import { LoanapplicationdetailsComponent } from './loanapplicationdetails/loanapplicationdetails.component';
+
 
 @NgModule({
   declarations: [
@@ -63,7 +66,10 @@ import { LoanApplicationsComponent } from './adminhome/RetriveLoanApplications';
     DetailsComponent,
     ApprovedDetailsComponent,
     LoanApplicationsComponent,
-    HomeComponent
+    HomeComponent,
+    LoanApplicationComponent,
+    LoanapplicationdetailsComponent,
+    ViewloanComponent
   ],
   imports: [
     BrowserModule,

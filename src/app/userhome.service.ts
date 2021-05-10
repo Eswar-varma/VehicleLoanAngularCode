@@ -3,18 +3,26 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import {​​​​​​​​ retry, catchError, map }​​​​​​​​ from'rxjs/operators';
 import { User } from './user/User';
+import { TokenStorageService } from './_services/token-storage.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserhomeService {
 
-  constructor(private httpservice:HttpClient) { }
-  private getByEmailURL:string="http://localhost:8989/users/eswarvarmab@gmail.com";
-  private putMap:string = "http://localhost:8989/user/update/";
+  constructor(private httpservice:HttpClient,private tokenStorageService: TokenStorageService) { }
+  // private getByEmailURL:string="http://localhost:8989/users/eswarvarmab@gmail.com";
   
+  private putMap:string = "http://localhost:8989/user/update";
+  email:string="";
+
   getByEmail():Observable<any>{
-    return this.httpservice.get<User>(this.getByEmailURL).
+    this.email =this.tokenStorageService.getUser().email;
+    // console.log("email "+this.email);
+    // console.log(this.tokenStorageService.getUser())
+    const getuseremail=`http://localhost:8989/users/${this.email}`;
+    console.log("success")
+    return this.httpservice.get<User>(getuseremail).
     pipe( retry(1), catchError(this.myerrorhandler));
   }
   

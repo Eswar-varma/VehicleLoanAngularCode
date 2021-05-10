@@ -19,13 +19,13 @@ export class UserProfileComponent implements OnInit {
   user = new FormGroup({
     email:new FormControl('',[Validators.required]),
     password:new FormControl('',[Validators.required]),
-    full_Name:new FormControl(''),
+    full_Name:new FormControl('',[Validators.required]),
     gender: new FormControl('') ,
-    age : new FormControl(''),
+    age : new FormControl('',[Validators.required]),
     phoneno:new FormControl('',[Validators.required]),
-    addr : new FormControl(''),
-    state : new FormControl(''),
-    city : new FormControl(''),
+    addr : new FormControl('',[Validators.required]),
+    state : new FormControl('',[Validators.required]),
+    city : new FormControl('',[Validators.required]),
     pin : new FormControl(''),
     emp_type: new FormControl(''),
     salary: new FormControl(''),
@@ -37,17 +37,16 @@ export class UserProfileComponent implements OnInit {
   
   // @Output() sendToParent = new EventEmitter();
 
+  viewprofile=true;
   formVisible = false;
   popupVisible = false;
   editbutton = true;
   email : any;
 
   ngOnInit(): void {
-    console.log("Eswar");
-    this.userdetails2 = this.tokenStorageService.getUser();
     //this.userdetails = this.tokenStorageService.getUser();
-    console.log(this.userdetails2.user_email);
-    this.onEdit();
+    this.retrieveProfile();
+    // this.onEdit();
     this.email=this.userdetails.user_email;
   }
   onSubmit(){
@@ -58,7 +57,18 @@ export class UserProfileComponent implements OnInit {
   }
   onEdit(){
     //this.userdetails=this.uservice.getByEmail().subscribe();
+    this.editbutton=false;
     this.formVisible = true;
+    this.viewprofile=false;
+    console.log("onEdit");
+    return this.uservice.getByEmail().subscribe(((data: any) => {
+      this.userdetails = data;
+      console.log(this.userdetails);
+    }));
+  }
+  retrieveProfile(){
+    //this.userdetails=this.uservice.getByEmail().subscribe();
+    this.formVisible = false;
     console.log("onEdit");
     return this.uservice.getByEmail().subscribe(((data: any) => {
       this.userdetails = data;
