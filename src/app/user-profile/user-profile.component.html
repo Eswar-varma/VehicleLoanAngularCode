@@ -135,7 +135,7 @@
                     </fieldset>
                         <div class="form-group shadow p-3 mb-3 bg-white rounded">
                             <label>Full Name</label>
-                            <input formControlName="full_Name" type="text" class="form-control" [(ngModel)]="userdetails.user_full_Name"> 
+                            <input formControlName="full_Name" type="text" class="form-control" required [(ngModel)]="userdetails.user_full_Name"> 
                         </div>
                         <div class="shadow p-3 mb-3 bg-white rounded">
                             <label>Gender</label>
@@ -153,14 +153,14 @@
 
                         <div class="form-group shadow p-3 mb-3 bg-white rounded">
                             <label>Age</label>
-                            <input formControlName="age" type="number" class="form-control" [(ngModel)]="userdetails.user_age"> 
+                            <input formControlName="age" type="number" class="form-control" required [(ngModel)]="userdetails.user_age"> 
                             <ul class="font-size-1">
                                 <li>Minimum 18 years age is required</li>
                             </ul>
                         </div>
                         <div class="form-group shadow p-3 mb-3 bg-white rounded">
                             <label>Phone No.</label>
-                            <input formControlName="phoneno" type="number" class="form-control" [(ngModel)]="userdetails.user_phone_Number"> 
+                            <input formControlName="phoneno" type="number" class="form-control" required [(ngModel)]="userdetails.user_phone_Number"> 
                          </div>
                          <div *ngIf="user.controls['email'].hasError('required')">
                              <span [ngStyle]="{'margin-left': '40px','color':'red'}">
@@ -169,19 +169,19 @@
                         </div>
                         <div class="form-group shadow p-3 mb-3 bg-white rounded">
                             <label>Address</label>
-                            <textarea class="form-control" formControlName="addr" id="exampleTextarea" [(ngModel)]="userdetails.user_address" rows="3"></textarea>
+                            <textarea class="form-control" formControlName="addr" id="exampleTextarea" required [(ngModel)]="userdetails.user_address" rows="3"></textarea>
                         </div>
                         <div class="form-group shadow p-3 mb-3 bg-white rounded">
                             <label>State</label>
-                            <input formControlName="state" type="text" class="form-control" [(ngModel)]="userdetails.user_state"> 
+                            <input formControlName="state" type="text" class="form-control" required [(ngModel)]="userdetails.user_state"> 
                         </div>
                         <div class="form-group shadow p-3 mb-3 bg-white rounded">
                             <label>City</label>
-                            <input formControlName="city" type="text" class="form-control" [(ngModel)]="userdetails.user_city"> 
+                            <input formControlName="city" type="text" class="form-control" required [(ngModel)]="userdetails.user_city"> 
                         </div>
                         <div class="form-group shadow p-3 mb-3 bg-white rounded">
                             <label>Pin Code</label>
-                            <input formControlName="pin" type="text" class="form-control" [(ngModel)]="userdetails.user_pincode"> 
+                            <input formControlName="pin" type="text" class="form-control" required [(ngModel)]="userdetails.user_pincode"> 
                         </div> 
 
                         <div class="shadow p-3 mb-3 bg-white rounded">
@@ -201,15 +201,15 @@
 
                         <div class="form-group shadow p-3 mb-3 bg-white rounded">
                             <label>Salary per month*</label>
-                            <input formControlName="salary" type="number" class="form-control" [(ngModel)]="userdetails.user_salary"> 
+                            <input formControlName="salary" type="number" class="form-control" required [(ngModel)]="userdetails.user_salary"> 
                         </div>
                         <div class="form-group shadow p-3 mb-3 bg-white rounded">
                             <label>Aadhar</label>
-                            <input formControlName="aadhar" type="text" class="form-control"  [(ngModel)]="userdetails.user_adhar_no"> 
+                            <input formControlName="aadhar" type="text" class="form-control"  required [(ngModel)]="userdetails.user_adhar_no"> 
                         </div>
                         <div class="form-group shadow p-3 mb-3 bg-white rounded">
                             <label>Pan Number</label>
-                            <input formControlName="pan" type="text" class="form-control" [(ngModel)]="userdetails.user_pan_no" > 
+                            <input formControlName="pan" type="text" class="form-control" required [(ngModel)]="userdetails.user_pan_no" > 
                         </div><br>
                         <button type="button" (click)="onSubmit()" class="btn btn-success">Update</button>
                     </form>
