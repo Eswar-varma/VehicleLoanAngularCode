@@ -29,14 +29,22 @@ const routes: Routes = [
   { path: 'admin', component: BoardAdminComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   {path:'approvedloan', component: ApprovedLoanComponent},
-  {path:'loanapply', component: LoanApplyComponent},
-  {path:'howtoapplyloan', component: HowToApplyCarLoanComponent},
-  {path:'loanapplication', component: LoanApplicationComponent},
   {path:"FAQ",component:FAQComponent},
   {path:"Contact",component:ContactComponent},
-  {path:"UserHome",component:UserhomeComponent},
-  {path:"UserProfile",component:UserProfileComponent},
-  {path:"User",component:UserComponent}
+  {path:"User",component:UserComponent,
+    children: [
+      {path:"UserHome",component:UserhomeComponent},
+      {path:"UserProfile",component:UserProfileComponent},
+      {
+        path:'loanapplication', 
+        component: LoanApplicationComponent,
+        children: [
+          {path:'loanapply', component: LoanApplyComponent},
+          {path:'howtoapplyloan', component: HowToApplyCarLoanComponent}
+        ]
+      }
+    ]
+  }
 
 ];
 

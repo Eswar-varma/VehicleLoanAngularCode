@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-loan-application',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoanApplicationComponent implements OnInit {
 
-  constructor() { }
+  constructor(private route:ActivatedRoute,private router:Router) { }
 
   ngOnInit(): void {
+  }
+
+  showHowToApplyLoan(){
+    this.router.navigate(['howtoapplyloan'], {relativeTo: this.route});
+  }
+  showLoanApply(){
+    this.router.navigate(['loanapply'], {relativeTo: this.route});
   }
 
 }

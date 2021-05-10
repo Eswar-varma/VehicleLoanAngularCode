@@ -9,10 +9,10 @@
       <div class="collapse navbar-collapse" id="navbarColor02">
         <ul class="navbar-nav me-auto" routerLinkActive="active">
           <li class="nav-item">
-            <a class="nav-link" href="User/UserHome" routerLink="UserHome">Home</a>
+            <a class="nav-link" (click)="showHome()">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" routerLink="loanapplication" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Go to Loan Application ">Loan</a>
+            <a class="nav-link" (click)="showLoan()" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Go to Loan Application ">Loan</a>
           </li>
         </ul>
       </div>
@@ -20,7 +20,7 @@
       <!-- <div class="collapse navbar-collapse" id="navbarColor02"> -->
         <ul class="nav navbar-nav navbar-right collapse navbar-collapse" id="navbarColor02">
           <li class="nav-item">
-            <a class="nav-link fas fa-user" data-bs-toggle="tooltip" data-bs-placement="bottom" title="View Profile" routerLink="UserProfile">Profile </a>
+            <a class="nav-link fas fa-user" data-bs-toggle="tooltip" data-bs-placement="bottom" title="View Profile" (click)="showProfile()">Profile </a>
           </li>
         </ul>
     <!-- </div> -->
