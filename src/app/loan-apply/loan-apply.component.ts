@@ -3,7 +3,6 @@ import { FormControl, FormGroup, PatternValidator, Validators } from '@angular/f
 import { ApplyloanService } from '../applyloan.service';
 import { User } from '../user/User';
 import { UserhomeService } from '../userhome.service';
-import { TokenStorageService } from '../_services/token-storage.service';
 import { LoanApplication } from './LoanApplication';
 
 @Component({
