@@ -3,13 +3,128 @@
             <div class="col-md-3">
                 <div class="contact-info">
                     <img src="https://image.ibb.co/kUASdV/contact-image.png" alt="image"/>
-                    <h2>Vehicle Loan Management</h2>
-                    <h4>User Email changing is <strong>"Restricted"</strong></h4>
+                    <h1 ><b>Vehicle Loan Management</b></h1>
+                    <h3 class="display-3 mb-3">Update your profile leads to high increase rate of loans </h3>
                 </div>
             </div>
             <div class="col-md-9">
                 <div class="contact-form">
-                    <button type="button"(click)="onEdit()" *ngIf=editbutton class="btn btn-info">Edit</button><br><br>
+                    <!-- view profile info -->
+                    <form [formGroup] = "user" (ngSubmit)="onSubmit()" *ngIf=viewprofile>
+                        <!-- {{}} -->
+                        <fieldset disabled>
+                            <div class="form-group shadow p-3 mb-3 bg-white rounded">
+                               <label>E-mail</label>
+                               <input formControlName="email" type="email" class="form-control" [disabled]="true" [(ngModel)]="userdetails.user_email"> 
+                            </div>
+                        </fieldset>
+
+                        <fieldset disabled>
+                            <div class="form-group shadow p-3 mb-3 bg-white rounded">
+                                <label>Full Name</label>
+                                <input formControlName="full_Name" type="text" class="form-control" [(ngModel)]="userdetails.user_full_Name"> 
+                            </div>
+                        </fieldset>
+
+                        <fieldset disabled>
+                            <div class="shadow p-3 mb-3 bg-white rounded">
+                                <label>Gender</label>
+                                <div class="form-check ">
+                                    <label class="form-check-label">
+                                    <input type="radio" formControlName="gender" [(ngModel)]="userdetails.user_gender" value="Male"> Male
+                                    </label>
+                                </div>
+                              <div class="form-check">
+                                <label class="form-check-label">
+                                  <input type="radio" formControlName="gender" [(ngModel)]="userdetails.user_gender" value="Female"> Female
+                                </label>
+                              </div>
+                            </div>
+                        </fieldset>
+
+                        <fieldset disabled>
+                            <div class="form-group shadow p-3 mb-3 bg-white rounded">
+                                <label>Age</label>
+                                <input formControlName="age" type="number" class="form-control" [(ngModel)]="userdetails.user_age"> 
+                                <ul class="font-size-1">
+                                    <li>Minimum 18 years age is required</li>
+                                </ul>
+                            </div>
+                        </fieldset>
+                            <fieldset disabled>
+                                <div class="form-group shadow p-3 mb-3 bg-white rounded">
+                                    <label>Phone No.</label>
+                                    <input formControlName="phoneno" type="number" class="form-control" [(ngModel)]="userdetails.user_phone_Number"> 
+                                </div>
+                            </fieldset>
+                        <fieldset disabled>
+                             <div *ngIf="user.controls['email'].hasError('required')">
+                                 <span [ngStyle]="{'margin-left': '40px','color':'red'}">
+                                 Phone Number cannot be Empty
+                                 </span>
+                            </div>
+                        </fieldset>
+                        <fieldset disabled>
+                            <div class="form-group shadow p-3 mb-3 bg-white rounded">
+                                <label>Address</label>
+                                <textarea class="form-control" formControlName="addr" id="exampleTextarea" [(ngModel)]="userdetails.user_address" rows="3"></textarea>
+                            </div>
+                        </fieldset>
+                        <fieldset disabled>
+                            <div class="form-group shadow p-3 mb-3 bg-white rounded">
+                                <label>State</label>
+                                <input formControlName="state" type="text" class="form-control" [(ngModel)]="userdetails.user_state"> 
+                            </div>
+                        </fieldset>
+                            <fieldset disabled>
+                            <div class="form-group shadow p-3 mb-3 bg-white rounded">
+                                <label>City</label>
+                                <input formControlName="city" type="text" class="form-control" [(ngModel)]="userdetails.user_city"> 
+                            </div>
+                        </fieldset>
+                            <fieldset disabled>
+                            <div class="form-group shadow p-3 mb-3 bg-white rounded">
+                                <label>Pin Code</label>
+                                <input formControlName="pin" type="text" class="form-control" [(ngModel)]="userdetails.user_pincode"> 
+                            </div> 
+                        </fieldset>
+                            <fieldset disabled>
+                            <div class="shadow p-3 mb-3 bg-white rounded">
+                                <label>Employement Type</label>
+                            <div class="form-check ">
+                                <label class="form-check-label">
+                                  <input type="radio" formControlName="emp_type" [(ngModel)]="userdetails.user_employement_type" value="Public">Public
+                                </label>
+                              </div>
+                              <div class="form-check">
+                                <label class="form-check-label">
+                                  <input type="radio" formControlName="emp_type" [(ngModel)]="userdetails.user_employement_type" value="Private">Private
+                                </label>
+                              </div>
+                            </div>
+                        </fieldset>
+                            <fieldset disabled>
+                            <div class="form-group shadow p-3 mb-3 bg-white rounded">
+                                <label>Salary per month*</label>
+                                <input formControlName="salary" type="number" class="form-control" [(ngModel)]="userdetails.user_salary"> 
+                            </div>
+                        </fieldset>
+                        <fieldset disabled>
+                            <div class="form-group shadow p-3 mb-3 bg-white rounded">
+                                <label>Aadhar</label>
+                                <input formControlName="aadhar" type="text" class="form-control"  [(ngModel)]="userdetails.user_adhar_no"> 
+                            </div>
+                        </fieldset>
+                            <fieldset disabled>
+                                <div class="form-group shadow p-3 mb-3 bg-white rounded">
+                                    <label>Pan Number</label>
+                                    <input formControlName="pan" type="text" class="form-control" [(ngModel)]="userdetails.user_pan_no" > 
+                                </div><br>
+                        </fieldset>
+                        </form>
+
+                        <!-- end of profile info -->
+                    <button type="button"(click)="onEdit()" *ngIf=editbutton class="btn btn-info">Edit My profile</button><br><br>
                     <form [formGroup] = "user" (ngSubmit)="onSubmit()" *ngIf=formVisible>
                     <fieldset disabled>
                         <div class="form-group shadow p-3 mb-3 bg-white rounded">

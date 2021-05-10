@@ -37,6 +37,7 @@ export class UserProfileComponent implements OnInit {
   
   // @Output() sendToParent = new EventEmitter();
 
+  viewprofile=true;
   formVisible = false;
   popupVisible = false;
   editbutton = true;
@@ -44,8 +45,8 @@ export class UserProfileComponent implements OnInit {
 
   ngOnInit(): void {
     //this.userdetails = this.tokenStorageService.getUser();
-
-    this.onEdit();
+    this.retrieveProfile();
+    // this.onEdit();
     this.email=this.userdetails.user_email;
   }
   onSubmit(){
@@ -56,7 +57,18 @@ export class UserProfileComponent implements OnInit {
   }
   onEdit(){
     //this.userdetails=this.uservice.getByEmail().subscribe();
+    this.editbutton=false;
     this.formVisible = true;
+    this.viewprofile=false;
+    console.log("onEdit");
+    return this.uservice.getByEmail().subscribe(((data: any) => {
+      this.userdetails = data;
+      console.log(this.userdetails);
+    }));
+  }
+  retrieveProfile(){
+    //this.userdetails=this.uservice.getByEmail().subscribe();
+    this.formVisible = false;
     console.log("onEdit");
     return this.uservice.getByEmail().subscribe(((data: any) => {
       this.userdetails = data;
