@@ -43,10 +43,8 @@ export class UserProfileComponent implements OnInit {
   email : any;
 
   ngOnInit(): void {
-    console.log("Eswar");
-    this.userdetails2 = this.tokenStorageService.getUser();
     //this.userdetails = this.tokenStorageService.getUser();
-    console.log(this.userdetails2.user_email);
+
     this.onEdit();
     this.email=this.userdetails.user_email;
   }
