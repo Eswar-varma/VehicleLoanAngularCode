@@ -25,8 +25,17 @@ import { MainHomeComponent } from './main-home/main-home.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { UserhomeComponent } from './userhome/userhome.component';
 import { UserComponent } from './user/user.component';
-import { LoanapplicationdetailsComponent } from './loanapplicationdetails/loanapplicationdetails.component';
+import { AdminhomeComponent } from './adminhome/adminhome.component';
+import { PendingApplicationsComponent } from './adminhome/PendingLoans';
+import { ApprovedApplicationsComponent } from './adminhome/ApprovedLoanApplications';
+import { RejectedApplicationsComponent } from './adminhome/RejectedLoans';
+import { DetailsComponent } from './adminhome/DisplayDetails';
+import { CommonModule } from '@angular/common';
+import { ApprovedDetailsComponent } from './approved-details/approved-details.component';
+import { LoanApplicationsComponent } from './adminhome/RetriveLoanApplications';
 import { ViewloanComponent } from './viewloan/viewloan.component';
+import { LoanapplicationdetailsComponent } from './loanapplicationdetails/loanapplicationdetails.component';
+
 
 @NgModule({
   declarations: [
@@ -50,6 +59,14 @@ import { ViewloanComponent } from './viewloan/viewloan.component';
     UserProfileComponent,
     UserhomeComponent,
     UserComponent,
+    AdminhomeComponent,
+    PendingApplicationsComponent,
+    ApprovedApplicationsComponent,
+    RejectedApplicationsComponent,
+    DetailsComponent,
+    ApprovedDetailsComponent,
+    LoanApplicationsComponent,
+    HomeComponent,
     LoanApplicationComponent,
     LoanapplicationdetailsComponent,
     ViewloanComponent
@@ -59,7 +76,8 @@ import { ViewloanComponent } from './viewloan/viewloan.component';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    CommonModule
     
   ],
   providers: [authInterceptorProviders],
