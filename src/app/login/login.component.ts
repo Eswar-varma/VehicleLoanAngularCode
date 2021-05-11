@@ -45,7 +45,7 @@ export class LoginComponent implements OnInit {
           });
         }
         else if(this.roles.includes("ROLE_USER")){
-          this.route.navigateByUrl("/User").then(()=>{
+          this.route.navigateByUrl("/User/UserHome").then(()=>{
             this.reloadPage();
           });
         }

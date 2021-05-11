@@ -1,10 +1,23 @@
-<p>viewapplicationstatus works!</p>
+
 <div class="container">
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-12 text-center " *ngIf="this.app.status=='approved'">
+            <img   class="img img-fluid rounded" src="https://i.stack.imgur.com/ZRTb6.gif">
+            <p class="lead ">
+             {{this.app.status | titlecase}}<p>
+                 <p>Your Loan Application has been Succesfully Accepted</p>  
+        </div>
+        <div class="col-md-12 text-center" *ngIf="this.app.status=='Pending'">
+            <img  class="img img-fluid rounded" src="https://thumbs.gfycat.com/ScrawnyBaggyIndianskimmer-size_restricted.gif">
             <p class="lead">
-             {{this.app.status}}<p>
-                
+             {{this.app.status | titlecase}}<p> 
+                 <p> Your Loan Application is still in review process.</p> 
+        </div>
+             <div class="col-md-12 text-center" *ngIf="this.app.status=='Rejcted'">
+            <img  class="img img-fluid rounded" src="https://media.istockphoto.com/vectors/error-symbol-icon-red-cross-vector-id971623934?k=6&m=971623934&s=170667a&w=0&h=h_zFeuVq6pVxYFx0NqKrgjI42reh1yBOS8OzRXZWUcI=">
+            <p class="lead">
+             {{this.app.status | titlecase}}<p> 
+                 <p> Your Loan Application is still in review process.</p> 
         </div>
     </div>
 </div>

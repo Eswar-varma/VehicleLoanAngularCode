@@ -24,7 +24,6 @@
       <div class="dropdown-menu" aria-labelledby="navbarDropdown">
         <a class="dropdown-item" routerLink="FAQ" >FAQ's</a>
         <a class="dropdown-item" routerLink="Contact" >Contact info</a>
-       
       </div>
     </li>
       <li class="nav-item" *ngIf="showAdminBoard">
@@ -33,6 +32,11 @@
       </li>
       <li class="nav-item">
         <a class="nav-link" *ngIf="isLoggedIn" routerLink="User/UserHome">User</a>
+      </li>
+    </ul>
+    <ul class="navbar-nav me-auto" routerLinkActive="active" *ngIf="isLoggedIn">
+      <li class="nav-item" >
+        <a  class="nav-link" routerLink="User/loanapplication" style="pointer-events: all; cursor: pointer;" data-bs-toggle="tooltip" data-bs-placement="bottom"  routerLinkActive="active" title="Go to Loan Application ">Loan</a>
       </li>
     </ul>
 
@@ -47,7 +51,7 @@
 
     <ul class="navbar-nav ml-auto" *ngIf="isLoggedIn">
       <li class="nav-item">
-        <a href="/profile" class="nav-link" routerLink="UserProfile"><i class="fa fa-user" aria-hidden="true"></i>{{ username }}</a>
+        <a href="/User/UserProfile" class="nav-link"><i class="fa fa-user" aria-hidden="true"></i>{{ username }}</a>
       </li>
       <li class="nav-item">
         <a href class="nav-link" (click)="logout()"><i class="fa fa-sign-out" aria-hidden="true"></i>LogOut</a>
