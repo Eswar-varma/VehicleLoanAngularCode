@@ -40,7 +40,7 @@ export class LoginComponent implements OnInit {
         this.isLoggedIn = true;
         this.roles = this.tokenStorage.getUser().roles;
         if(this.roles.includes("ROLE_ADMIN")){
-          this.route.navigateByUrl("/adminhome").then(()=>{
+          this.route.navigateByUrl("/home").then(()=>{
             this.reloadPage();
           });
         }
