@@ -2,7 +2,6 @@ import { User } from "../user/User";
 
 export class LoanApplication {
 		user:User;
-		loan_applicaton_id:any;
 		loan_tenure:number;
 		loan_amount:number;
 		vehicle_brand:string;

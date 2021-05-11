@@ -12,10 +12,10 @@ import { TokenStorageService } from './_services/token-storage.service';
 export class ApplyloanService {
   
   constructor(private httpservice:HttpClient,private tokenStorageService: TokenStorageService) { }
+  
   email:string=this.tokenStorageService.getUser().email;
 
   private postMap:string = "http://localhost:8989/loan/apply";
-  
   
   applyloan(loanapplication :LoanApplication): any
   {
@@ -24,10 +24,11 @@ export class ApplyloanService {
     return this.httpservice.post(this.postMap,loanapplication)
     .pipe( retry(1), catchError(this.myerrorhandler))
   }
-  viewLoanApplication(id:string):Observable <any>{
+  viewLoanApplication():Observable <any>{
     console.group("Inside view of applyLoan Service")
-    // const getMap:string=`http://localhost:8989/loan/users/get/${this.id}`;
-    const getMap:string="http://localhost:8989/loan/get/1";
+    console.log(this.email);
+    const getMap:string=`http://localhost:8989/loan/users/get/${this.email}`;
+    //const getMap:string="http://localhost:8989/loan/get/1";
     return this.httpservice.get<LoanApplication>(getMap).
     pipe( retry(1), catchError(this.myerrorhandler));
   }
@@ -36,6 +37,15 @@ export class ApplyloanService {
   //   return this.httpservice.post(this.setUrl,user)
   //   .pipe( retry(1), catchError(this.myerrorhandler))//+"/"+body, {'headers':headers}) 
   // }
+
+  viewLoanApplicationstatus():Observable <any>{
+    console.group("Inside view of Loan status")
+    console.log(this.email);
+    const getMap:string=`http://localhost:8989/loan/checkstatus/${this.email}`;
+    return this.httpservice.get<LoanApplication>(getMap).
+    pipe( retry(1), catchError(this.myerrorhandler));
+  }
+  
   myerrorhandler(error:any) {//4200-
     let errorMessage = '';
     if(error.error instanceof ErrorEvent) {
