@@ -21,9 +21,9 @@ export class ApprovedDetailsComponent implements OnInit {
     this.status_id=this.ar.snapshot.params['id'];
   }
 
-  apprLoans!: ApprovedLoans;
+  apprLoans: ApprovedLoans={} as any;
   
-  loanstatus!: LoanApplicationStatus;
+  loanstatus: LoanApplicationStatus={} as any;
  
   fill(){
       this.sservice.getById(this.status_id)
