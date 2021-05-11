@@ -21,7 +21,7 @@ export class UserhomeService {
     // console.log("email "+this.email);
     // console.log(this.tokenStorageService.getUser())
     const getuseremail=`http://localhost:8989/users/${this.email}`;
-    console.log("success")
+    // console.log("success")
     return this.httpservice.get<User>(getuseremail).
     pipe( retry(1), catchError(this.myerrorhandler));
   }

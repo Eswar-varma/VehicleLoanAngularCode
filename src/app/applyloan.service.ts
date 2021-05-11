@@ -19,28 +19,19 @@ export class ApplyloanService {
   
   applyloan(loanapplication :LoanApplication): any
   {
-    console.log("inside apply laon");
-    console.log(loanapplication);
+    // console.log("inside apply laon");
+    // console.log(loanapplication);
     return this.httpservice.post(this.postMap,loanapplication)
     .pipe( retry(1), catchError(this.myerrorhandler))
   }
   viewLoanApplication():Observable <any>{
-    console.group("Inside view of applyLoan Service")
-    console.log(this.email);
+  
     const getMap:string=`http://localhost:8989/loan/users/get/${this.email}`;
     //const getMap:string="http://localhost:8989/loan/get/1";
     return this.httpservice.get<LoanApplication>(getMap).
     pipe( retry(1), catchError(this.myerrorhandler));
   }
-  // add(user: Users): any{
-  //   console.log(user);
-  //   return this.httpservice.post(this.setUrl,user)
-  //   .pipe( retry(1), catchError(this.myerrorhandler))//+"/"+body, {'headers':headers}) 
-  // }
-
   viewLoanApplicationstatus():Observable <any>{
-    console.group("Inside view of Loan status")
-    console.log(this.email);
     const getMap:string=`http://localhost:8989/loan/checkstatus/${this.email}`;
     return this.httpservice.get<LoanApplication>(getMap).
     pipe( retry(1), catchError(this.myerrorhandler));

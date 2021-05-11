@@ -21,13 +21,15 @@ export class ViewapplicationstatusComponent implements OnInit {
 
   // console.log(this.retreiveLoanApplication());
   }
+  isapproved=false;
+  isrejected=false;
+  ispending=false;
   userdetails : User= {} as any;
   applyloan :LoanApplication={} as any;
   status:ApplicationStatus={} as any;
   app:any
   retrieveProfile(){
     //this.userdetails=this.uservice.getByEmail().subscribe();
-    console.log("onEdit");
     return this.uservice.getByEmail().subscribe(((data: any) => {
       this.userdetails = data;
       // console.log(this.userdetails);
@@ -46,7 +48,18 @@ export class ViewapplicationstatusComponent implements OnInit {
     console.log("Inside retreive Loan");
     return this.loanappservice.viewLoanApplicationstatus().subscribe(((data: any)=>{
       this.app=data;
-      console.log(this.app.status)
+      // console.log(this.app.status)
+      if(this.app.status=='Approved')
+      {
+        this.isapproved=true;
+      }
+      else if(this.app.status=='Rejected')
+      {
+        this.isrejected=true;
+      }
+      else{
+        this.ispending=true;
+      }
     }));  
     
   }
