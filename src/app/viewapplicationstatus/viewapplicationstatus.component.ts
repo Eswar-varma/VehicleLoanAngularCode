@@ -1,29 +1,30 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators,ReactiveFormsModule } from '@angular/forms';
 import { ApplyloanService } from '../applyloan.service';
+import { LoanApplication } from '../loan-apply/LoanApplication';
 import { User } from '../user/User';
 import { UserhomeService } from '../userhome.service';
-import { LoanApplication } from '../loan-apply/LoanApplication';
-import { TokenStorageService } from '../_services/token-storage.service';
+import { ApplicationStatus } from './ApplicationStatus';
 
 @Component({
-  selector: 'app-viewloan',
-  templateUrl: './viewloan.component.html',
-  styleUrls: ['./viewloan.component.css']
+  selector: 'app-viewapplicationstatus',
+  templateUrl: './viewapplicationstatus.component.html',
+  styleUrls: ['./viewapplicationstatus.component.css']
 })
-export class ViewloanComponent implements OnInit {
+export class ViewapplicationstatusComponent implements OnInit {
 
-  constructor(private loanappservice:ApplyloanService,private uservice:UserhomeService,private token:TokenStorageService) { }
+  constructor(private loanappservice:ApplyloanService,private uservice:UserhomeService) { }
 
   ngOnInit(): void {
   this.retrieveProfile();
   this.retreiveLoanApplication();
+  this.retreiveLoanApplicationstatus();
+
   // console.log(this.retreiveLoanApplication());
   }
   userdetails : User= {} as any;
   applyloan :LoanApplication={} as any;
-
-  
+  status:ApplicationStatus={} as any;
+  app:any
   retrieveProfile(){
     //this.userdetails=this.uservice.getByEmail().subscribe();
     console.log("onEdit");
@@ -38,8 +39,17 @@ export class ViewloanComponent implements OnInit {
     // console.log(this.token.getUser);
     return this.loanappservice.viewLoanApplication().subscribe(((data: any)=>{
       this.applyloan=data;
-      console.log(this.applyloan)
-    }));
+    })); 
   }
+  retreiveLoanApplicationstatus()
+  {
+    console.log("Inside retreive Loan");
+    return this.loanappservice.viewLoanApplicationstatus().subscribe(((data: any)=>{
+      this.app=data;
+      console.log(this.app.status)
+    }));  
+    
+  }
+
 
 }

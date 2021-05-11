@@ -23,5 +23,9 @@ export class LoanApplicationComponent implements OnInit {
   {
     this.router.navigate(['viewloanApplication'],{relativeTo: this.route})
   }
+  showapplicationstatus()
+  {
+    this.router.navigate(['viewstatus'],{relativeTo: this.route})
+  }
 
 }

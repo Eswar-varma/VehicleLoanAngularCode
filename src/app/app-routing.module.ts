@@ -26,6 +26,8 @@ import { RejectedApplicationsComponent } from './adminhome/RejectedLoans';
 import { LoanApplicationsComponent } from './adminhome/RetriveLoanApplications';
 import { ApprovedDetailsComponent } from './approved-details/approved-details.component';
 import { ViewloanComponent } from './viewloan/viewloan.component';
+import { ViewapplicationstatusComponent } from './viewapplicationstatus/viewapplicationstatus.component';
+
 
 const routes: Routes = [
   { path: 'home', component: MainHomeComponent },
@@ -49,7 +51,8 @@ const routes: Routes = [
         children: [
           {path:'loanapply', component: LoanApplyComponent},
           {path:'howtoapplyloan', component: HowToApplyCarLoanComponent},
-          {path:"viewloanApplication",component:ViewloanComponent}
+          {path:"viewloanApplication",component:ViewloanComponent},
+          {path:"viewstatus",component:ViewapplicationstatusComponent}
         ]
       }
     ]
